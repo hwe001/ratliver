@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+	<head>
+		<title>Rat Liver Atlas</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000;
+				color: #fff;
+				margin: 0px;
+				overflow: hidden;
+                text-align: center;
+			}
+			#info {
+				color: #fff;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+			}
+            
+            .navigation_button_geo {
+              padding: 5px 5px;
+              font-size: 8px;
+              text-align: center;
+              cursor: pointer;
+              outline: none;
+              color: #fff;
+              background-color: skyblue;
+              border: none;
+              border-radius: 15px;
+              
+              
+              position:fixed;
+              z-index: 0;
+              
+              right: 0px;
+              width:150;
+       
+
+              
+            }
+            
+            .navigation_button_scene {
+              padding: 5px 5px;
+              font-size: 8px;
+              text-align: center;
+              cursor: pointer;
+              outline: none;
+              color: #fff;
+              background-color: olivedrab;
+              border: none;
+              border-radius: 15px;
+                
+              
+              width:150;
+              
+              position:fixed;
+              
+              top:80px;
+              right: 0px;
+              
+
+              
+            }
+           
+           
+            
+            .sidenav {
+                
+              width: 0;
+              height: 70%;
+              position: fixed;
+              z-index: 0;
+              top: 20px;
+              right: 0px;
+         
+              overflow-y: scroll;
+              
+              
+              text-align: left;
+              background-color: black;
+              opacity:0.8;
+              border-radius: 6px;
+                
+/*
+              background-color: #000;
+              border-style:solid ;
+              border-color:dimgrey;
+*/
+              
+              
+            }
+            
+
+            
+            .sidenav .closebtn {
+              position: absolute;
+              top: 0;
+              right: 25px;
+              font-size: 36px;
+              margin-left: 50px;
+                color: white;
+            }
+            .sidenav p {
+              
+              display: block;
+              
+              
+              border-color:dimgrey;
+              padding-left: 10px;
+             
+              
+                
+            }
+            .sidenav a {
+/*              padding: 1px 16px 1px 16px;*/
+              text-decoration: none;
+              font-size
+              color: white;
+              
+            }
+
+            
+            
+			#info a, .button { color: #f00; font-weight: bold; text-decoration: underline; cursor: pointer }
+		</style>
+	</head>
+
+	<body style="height:100%">
+		3D dog project
+        
+        <div class="navigation_button_geo">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+        </div>
+        
+
+
+        
+   
+        
+        <div class="sidenav" id="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            <p id='myText'>   
+                 <br />
+                
+                <a><input type="checkbox" onclick="updateGeo(this)" id="lobe_1" checked> ML</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="lobe_2" checked> LL</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="lobe_3" checked> RL_1</a><br />					
+                <a><input type="checkbox" onclick="updateGeo(this)" id="lobe_4" checked> RL_2</a><br /> 
+                <a><input type="checkbox" onclick="updateGeo(this)" id="lobe_5" checked> SL_1</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="lobe_6" checked> SL_2</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="stump" checked> Paracaval</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="hv_ivc" checked> HV_IVC</a><br />
+				<a><input type="checkbox" onclick="updateGeo(this)" id="portal" checked> Portal</a><br />
+			
+               
+                
+            
+            
+            </p>
+            
+             <span style="font-size:15px;cursor:pointer" onclick="viewAll()">&#9206;View All</span> <br/>
+            <span style="font-size:15px;cursor:pointer" onclick="hideAll()">&#9206;Hide All</span> <br/>
+            <span style="font-size:15px;cursor:pointer" onclick="showAll()">&#9206;Show All</span> <br/>
+          
+            
+           
+            
+        </div>
+
+		<script src="js/three.min.js"></script>
+		<script src="js/zinc_threejs_control.js"></script>
+		<script src="js/zinc_3js_renderer.js"></script>
+		<script>	
+			container = document.createElement( 'div' );
+			document.body.appendChild( container );
+			container.style.height = "100%"
+
+			var zincRenderer = new Zinc.Renderer(container, window);
+			zincRenderer.initialiseVisualisation();
+			var scene = zincRenderer.createScene("BasicMesh");
+			scene.loadViewURL("BasicMesh_view.json");
+            
+
+			scene.loadMetadataURL(
+                "BasicMesh_metadata_2.json",
+                function () {scene.viewAll();}
+            );
+            
+			zincRenderer.setCurrentScene(scene);
+			zincRenderer.animate();
+
+            /* Zinc functions */
+			function viewAll()
+			{
+				scene.viewAll();
+			}
+            
+            function updateGeo(element)
+            {
+                scene.forEachGeometry(
+                    function (geo_){
+                        if (geo_.groupName == element.id){
+                            geo_.setVisibility(element.checked);        
+                            
+                        }
+                    }
+                
+                )
+                
+            }
+            
+            function hideAll(){
+                scene.forEachGeometry(
+                    function (geo_){
+                        geo_.setVisibility(false);
+                        console.log(geo_)
+                        var checkbox_ = document.getElementById(geo_.groupName);
+                        checkbox_.checked=false;
+                        
+                    }
+                )
+                
+                
+            }
+            
+            function showAll(){
+                scene.forEachGeometry(
+                    function (geo_){
+                        geo_.setVisibility(true);
+                        var checkbox_ = document.getElementById(geo_.groupName);
+                        checkbox_.checked=true;
+                    }
+                )
+            }
+            
+            /* html functions */
+            function openNav() {
+              document.getElementById("sidenav").style.width = "150px";
+            }
+
+            function closeNav() {
+              document.getElementById("sidenav").style.width = "0";
+            }
+            
+            
+          
+		</script>
+	</body>
+</html>

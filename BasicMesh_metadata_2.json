@@ -1,0 +1,130 @@
+[
+   {
+      "GroupName" : "dogbody",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "dogbody_wire_1.json"
+   },
+   {
+      "GroupName" : "stomach",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "stomach_1.json"
+   },
+   {
+      "GroupName" : "intestine",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "intestine_1.json"
+   },
+   {
+      "GroupName" : "bladder",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "bladder_1.json"
+   },
+   {
+      "GroupName" : "spleen",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "spleen_1.json"
+   },
+   {
+      "GroupName" : "liver",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "liver_1.json"
+   },
+   {
+      "GroupName" : "kidney",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "kidney_1.json"
+   },
+   {
+      "GroupName" : "femur",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "femur_1.json"
+   },
+   {
+      "GroupName" : "fibula",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "fibula_1.json"
+   },
+   {
+      "GroupName" : "tibia",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "tibia_1.json"
+   },
+   {
+      "GroupName" : "PV",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "PV_1.json"
+   },
+   {
+      "GroupName" : "aorta",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "aorta_1.json"
+   },
+   {
+      "GroupName" : "m1",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "muscle1_1.json"
+   },
+   {
+      "GroupName" : "m2",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "muscle2_1.json"
+   },
+   {
+      "GroupName" : "m3",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "muscle3_1.json"
+   },
+   {
+      "GroupName" : "m4",
+      "MorphColours" : false,
+      "MorphNormals" : false,
+      "MorphVertices" : false,
+      "Type" : "Surfaces",
+      "URL" : "muscle4_1.json"
+   }
+]
